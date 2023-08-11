@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <NEKTAR>
     <EXPANSIONS>
-        <E COMPOSITE="C[272,273]" NUMMODES="3" TYPE="MODIFIED" FIELDS="u,v,w" />
-        <E COMPOSITE="C[272,273]" NUMMODES="2" TYPE="MODIFIEDQUADPLUS1" FIELDS="p" />
+        <E COMPOSITE="C[272,273]" NUMMODES="5" TYPE="MODIFIED" FIELDS="u,v,w" />
+        <E COMPOSITE="C[272,273]" NUMMODES="4" TYPE="MODIFIEDQUADPLUS1" FIELDS="p" />
     </EXPANSIONS>
     <CONDITIONS>
         <SOLVERINFO>
@@ -84,17 +84,14 @@
       
         <!-- Specify the initial condition -->
         <FUNCTION NAME="InitialConditions">
-        <E VAR="u" VALUE="U0" />
-        <E VAR="v" VALUE="V0" />
-        <E VAR="w" VALUE="W0" />
-        <E VAR="p" VALUE="0.0" />     
+        <F VAR="u,v,w,p" FILE="restart.rst" />   
         </FUNCTION>
     </CONDITIONS>
     
 
     <FILTERS> 
         <FILTER TYPE="HistoryPoints">
-              <PARAM NAME="OutputFile">History_pts</PARAM> <PARAM NAME="OutputFrequency">100</PARAM> <PARAM NAME="Points">
+              <PARAM NAME="OutputFile">History_pts2</PARAM> <PARAM NAME="OutputFrequency">100</PARAM> <PARAM NAME="Points">
                 43.5 42.5 0.5
 	      </PARAM>
 	    </FILTER>
